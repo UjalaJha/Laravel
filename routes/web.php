@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/new','PageController@index');
-Route::get('/hi','PageController@hi');
-
 Route::get('/hello', function () {
     return 'hello';
 });
+Route::get('/page1', function () {
+    return view('posts.page1');
+});
+
+Route::get('/new','PageController@index');
+Route::get('/hi','PageController@hi');
+Route::resource('ideas','IdeasController');

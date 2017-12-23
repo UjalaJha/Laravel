@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{config('app.name')}}</title>
+        <title>Welcome</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -64,19 +64,9 @@
             }
         </style>
     </head>
-    <body>
+     <body>
         @include('inc.navbar')
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    How are you?
-                </div>
-
-                <div class="links">
-                    <a href="https://google.com">Google</a>
-            </div>
-            </div>
-        </div>
         @yield('content')
+        
     </body>
 </html>

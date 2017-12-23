@@ -22,6 +22,7 @@
               <li><a href="/hi">hey</a></li>
               <li><a href="/new">new</a></li>
               <li><a href="/">hello</a></li>
+              <li><a href="/ideas">Ideas</a></li>
             </ul>
         </div>
     </div>
