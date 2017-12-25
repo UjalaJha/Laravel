@@ -14,7 +14,8 @@ class IdeasController extends Controller
      */
     public function index()
     {
-        $idea= idea::all();
+        //$idea= idea::all();
+        $idea= idea::orderby('Title','desc')->paginate(2);
         return view('posts.index')->with('abc',$idea);;
     }
 
@@ -25,7 +26,7 @@ class IdeasController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -47,7 +48,9 @@ class IdeasController extends Controller
      */
     public function show($id)
     {
-        return Idea::find($id);
+        $idea=Idea::find($id);
+        //return "hello";
+        return view('posts.show')->with('idea',$idea);
     }
 
     /**
