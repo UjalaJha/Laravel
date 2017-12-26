@@ -15,7 +15,7 @@ class IdeasController extends Controller
     public function index()
     {
         //$idea= idea::all();
-        $idea= idea::orderby('Title','desc')->paginate(2);
+        $idea= idea::orderby('created_at','desc')->paginate(4);
         return view('posts.index')->with('abc',$idea);;
     }
 
@@ -37,7 +37,17 @@ class IdeasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request, [
+            'Title' => 'required',
+            'Body' => 'required',
+        ]);
+        
+        $idea=new idea;
+        $idea->Title=$request->input('Title');
+        $idea->Body=$request->input('Body');
+        $idea->save();
+
+        return redirect('/ideas')->with('success','post Created');
     }
 
     /**
@@ -61,7 +71,8 @@ class IdeasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $idea=Idea::find($id);
+        return view('posts.edit')->with('idea',$idea);
     }
 
     /**
@@ -73,7 +84,19 @@ class IdeasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Title' => 'required',
+            'Body' => 'required',
+        ]);
+        
+        $idea=idea::find($id);
+        $idea->Title=$request->input('Title');
+        $idea->Body=$request->input('Body');
+        /*$idea->created_at=$request->input('date');
+        $idea->updated_at=$request->input('date');*/
+        $idea->save();
+
+        return redirect('/ideas')->with('success','Post Updates');
     }
 
     /**
@@ -84,6 +107,14 @@ class IdeasController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $idea=idea::find($id);
+       if ($idea != null)
+        {
+           $idea->DELETE();
+           return redirect('/ideas')->with('success','Post Removed');
+        }
+         return redirect('/ideas')->with('success','Post Removed');
     }
+
+
 }

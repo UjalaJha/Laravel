@@ -24,6 +24,9 @@
               <li><a href="/">hello</a></li>
               <li><a href="/ideas">Ideas</a></li>
             </ul>
+            <ul class='nav navbar-nav navbar-right'>
+               <li><a href="/ideas/create">Add Ideas</a></li>
+            </ul>
         </div>
     </div>
 </nav>
