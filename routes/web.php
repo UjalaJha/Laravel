@@ -25,3 +25,6 @@ Route::get('/page1', function () {
 Route::get('/new','PageController@index');
 Route::get('/hi','PageController@hi');
 Route::resource('ideas','IdeasController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
